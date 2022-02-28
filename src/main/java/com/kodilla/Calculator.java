@@ -21,5 +21,3 @@ public class Calculator {
         System.out.println(calc.subtract(23, 45));
     }
 }
-
-
