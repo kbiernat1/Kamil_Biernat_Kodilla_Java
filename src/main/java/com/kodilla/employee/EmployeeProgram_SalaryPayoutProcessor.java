@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.employee;
 
 class SalaryPayoutProcessor extends SalaryPayout {
     public SalaryPayoutProcessor(Employee employee) {

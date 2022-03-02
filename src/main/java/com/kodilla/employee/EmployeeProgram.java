@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.employee;
 
 public class EmployeeProgram {
     public static void main(String args[]) {

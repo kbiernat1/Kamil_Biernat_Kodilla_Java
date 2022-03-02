@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.employee;
 
 class ContractWorkEmployee implements Employee {
     private int productQuantity;

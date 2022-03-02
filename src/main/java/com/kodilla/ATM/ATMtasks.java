@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.ATM;
 
 class ATMtasks extends ATM {
     protected void insertCard() {

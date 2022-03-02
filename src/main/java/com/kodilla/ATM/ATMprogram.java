@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.ATM;
 
 public class ATMprogram {
     public static void main(String[] args) {

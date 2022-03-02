@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.employee;
 
 interface Employee {
     double calculateSalary();

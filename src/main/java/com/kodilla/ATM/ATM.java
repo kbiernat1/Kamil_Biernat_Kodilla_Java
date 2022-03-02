@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.ATM;
 
 abstract class ATM {
     abstract protected void insertCard();

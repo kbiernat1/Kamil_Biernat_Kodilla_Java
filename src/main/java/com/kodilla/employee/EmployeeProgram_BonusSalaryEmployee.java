@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.employee;
 
 class BonusSalaryEmployee implements Employee {
     private double salary;

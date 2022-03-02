@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.calculator;
 
 class CalculatorAddSubtract {
     int a;
