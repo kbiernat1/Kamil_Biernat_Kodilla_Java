@@ -1,26 +1,17 @@
 package com.kodilla.testing.collection;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OddNumbersExterminator {
-
     public List<Integer> exterminate(List<Integer> numbers) {
-        int temporaryNumber;
+        List<Integer> myList = new ArrayList<>();
 
-        System.out.print("The whole collection: ");
-        for (Integer number : numbers) {
-            temporaryNumber = number;
-            System.out.print(temporaryNumber + " ");
-        }
-
-        System.out.print("\nEven numbers from collection above: ");
-
-        for (Integer number : numbers) {
-            temporaryNumber = number;
-            if (temporaryNumber % 2 == 0) {
-                System.out.print(temporaryNumber + " ");
+        for (Integer nextNumbers : numbers) {
+            if (nextNumbers % 2 == 0) {
+                myList.add(nextNumbers);
             }
         }
-        return null;
+        return myList;
     }
 }
