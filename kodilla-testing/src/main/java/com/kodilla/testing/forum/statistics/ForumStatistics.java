@@ -58,7 +58,7 @@ public class ForumStatistics {
     }
 
     public double calculateAverageCommentsToPost() {
-        if (usersAmount > 0) {
+        if (postsAmount > 0) {
             return (double) getCommentsAmount() / getPostsAmount();
         } else {
             return 0;
