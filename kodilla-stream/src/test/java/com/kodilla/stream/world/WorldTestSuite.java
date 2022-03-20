@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorldTestSuite {
 
@@ -17,16 +19,21 @@ public class WorldTestSuite {
         Country canada = new Country("Poland", new BigDecimal("35881659"));
         Country china = new Country("Poland", new BigDecimal("1401585247"));
 
-        Continent europe = new Continent("Europe");
-        Continent northAmerica = new Continent("North America");
-        Continent asia = new Continent("Asia");
+        List<Country> europeanCountries = new ArrayList<>();
+        europeanCountries.add(poland);
+        europeanCountries.add(germany);
+        europeanCountries.add(france);
 
-        europe.getCountryList().add(poland);
-        europe.getCountryList().add(germany);
-        europe.getCountryList().add(france);
-        northAmerica.getCountryList().add(usa);
-        northAmerica.getCountryList().add(canada);
-        asia.getCountryList().add(china);
+        List<Country> northAmericanCountries = new ArrayList<>();
+        northAmericanCountries.add(usa);
+        northAmericanCountries.add(canada);
+
+        List<Country> asianCountries = new ArrayList<>();
+        asianCountries.add(china);
+
+        Continent europe = new Continent("Europe", europeanCountries);
+        Continent northAmerica = new Continent("North America", northAmericanCountries);
+        Continent asia = new Continent("Asia", asianCountries);
 
         World world = new World();
 
