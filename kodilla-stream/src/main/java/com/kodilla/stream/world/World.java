@@ -6,7 +6,7 @@ import java.util.List;
 
 public final class World {
 
-    public final List<Continent> world = new ArrayList<>();
+    public List<Continent> world = new ArrayList<>();
 
     public List<Continent> addContinent(Continent continent) {
         world.add(continent);

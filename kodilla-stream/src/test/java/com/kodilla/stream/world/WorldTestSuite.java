@@ -13,16 +13,17 @@ public class WorldTestSuite {
     void testGetPeopleQuantity() {
         //Given
         Country poland = new Country("Poland", new BigDecimal("38420687"));
-        Country germany = new Country("Poland", new BigDecimal("80457737"));
-        Country france = new Country("Poland", new BigDecimal("67364357"));
-        Country usa = new Country("Poland", new BigDecimal("329256465"));
-        Country canada = new Country("Poland", new BigDecimal("35881659"));
-        Country china = new Country("Poland", new BigDecimal("1401585247"));
+        Country germany = new Country("germany", new BigDecimal("80457737"));
+        Country france = new Country("france", new BigDecimal("67364357"));
+        Country usa = new Country("usa", new BigDecimal("329256465"));
+        Country canada = new Country("canada", new BigDecimal("35881659"));
+        Country china = new Country("china", new BigDecimal("1401585247"));
 
         List<Country> europeanCountries = new ArrayList<>();
         europeanCountries.add(poland);
         europeanCountries.add(germany);
         europeanCountries.add(france);
+
 
         List<Country> northAmericanCountries = new ArrayList<>();
         northAmericanCountries.add(usa);
@@ -32,8 +33,11 @@ public class WorldTestSuite {
         asianCountries.add(china);
 
         Continent europe = new Continent("Europe", europeanCountries);
+        europe.getCountryList();
         Continent northAmerica = new Continent("North America", northAmericanCountries);
+        northAmerica.getCountryList();
         Continent asia = new Continent("Asia", asianCountries);
+        asia.getCountryList();
 
         World world = new World();
 
@@ -45,6 +49,6 @@ public class WorldTestSuite {
         BigDecimal worldPeopleQty = world.getPeopleQuantity();
 
         //Then
-        Assertions.assertEquals(1952966152, worldPeopleQty);
+        Assertions.assertEquals(new BigDecimal("1952966152"), worldPeopleQty);
     }
 }
