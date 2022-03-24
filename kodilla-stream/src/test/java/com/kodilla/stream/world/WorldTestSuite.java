@@ -33,11 +33,11 @@ public class WorldTestSuite {
         asianCountries.add(china);
 
         Continent europe = new Continent("Europe", europeanCountries);
-        europe.getCountryList();
+
         Continent northAmerica = new Continent("North America", northAmericanCountries);
-        northAmerica.getCountryList();
+
         Continent asia = new Continent("Asia", asianCountries);
-        asia.getCountryList();
+
 
         World world = new World();
 

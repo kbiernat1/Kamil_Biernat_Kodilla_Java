@@ -7,6 +7,7 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -168,8 +169,15 @@ class BoardTestSuite {
 
         long average = daysSum / tasksQty;
 
+        double avg = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .mapToInt(t -> Period.between(t.getCreated(), LocalDate.now()).getDays())
+                        .average().getAsDouble();
+
+
         //Then
-        assertEquals(30, daysSum);
+        assertEquals(30, daysSum, avg);
         assertEquals(10, average);
 
     }
