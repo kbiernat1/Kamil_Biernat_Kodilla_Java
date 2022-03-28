@@ -1,11 +1,13 @@
 package com.kodilla.exception.thirdChallenge;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class FlightSearch {
 
     Map<String, Boolean> flightMap;
+    public FlightSearch(Map<String, Boolean> flightMap) {
+        this.flightMap = flightMap;
+    }
 
     private boolean airportName(String airport) throws RouteNotFoundException {
         if (flightMap.containsKey(airport)) {
@@ -15,12 +17,7 @@ public class FlightSearch {
         }
     }
 
-    public boolean findAirports(Flight flight) throws RouteNotFoundException {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
         return airportName(flight.getDepartureAirport()) && airportName(flight.getArrivalAirport());
-    }
-
-    public Map<String, Boolean> findFlight(Flight flight) throws RouteNotFoundException {
-        Map<String, Boolean> flightMap = new HashMap<>();
-        return flightMap;
     }
 }
