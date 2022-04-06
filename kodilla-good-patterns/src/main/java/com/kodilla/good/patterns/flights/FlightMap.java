@@ -1,8 +1,6 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FlightMap {
@@ -45,40 +43,40 @@ public class FlightMap {
         return flightsSet;
     }
 
-    public void findDepartures() {
-        List<String> departures = createSet().stream()
-                .map(Flights::getDeparture)
-                .distinct()
+    public List<Flights> findDepartures(String from) {
+        return createSet().stream()
+                .filter(d -> d.getDeparture().equals(from))
                 .collect(Collectors.toList());
-
-        departures.stream()
-                .forEach(System.out::println);
     }
 
-    public void findArrivals() {
-        List<String> arrivals = createSet().stream()
-                .map(Flights::getArrival)
-                .distinct()
+    public List<Flights> findArrivals(String to) {
+        return createSet().stream()
+                .filter(a -> a.getArrival().equals(to))
                 .collect(Collectors.toList());
-
-        arrivals.stream()
-                .forEach(System.out::println);
     }
 
-    public void commonCity(String city) {
-        List<String> first = createSet().stream()
-                .map(a -> a.getArrival())
+    public List<ConnectingFlight> findFlights(String from, String to) {
+        List<Flights> findDepartures = findDepartures(from);
+        List<Flights> findArrivals = findArrivals(to);
+
+        Map<Flights, List<Flights>> result = new HashMap<>();
+
+        findDepartures.stream()
+                .forEach(departure -> {
+                    List<Flights> list1 = findArrivals.stream()
+                            .filter(arrival -> arrival.getDeparture().equals(departure.getArrival()))
+                            .collect(Collectors.toList());
+
+                    if (list1.size() > 0) result.put(departure, list1);
+                });
+
+        return result.entrySet().stream()
+                .map(entry -> {
+                    Flights a = entry.getKey();
+                    List<Flights> list2 = entry.getValue();
+                    ConnectingFlight connectingFlight = new ConnectingFlight(a, list2.get(0));
+                    return connectingFlight;
+                })
                 .collect(Collectors.toList());
-
-        List<String> second = createSet().stream()
-                .map(b -> b.getDeparture())
-                .collect(Collectors.toList());
-
-        boolean common = createSet().stream()
-                .filter(c -> first.equals(second)).equals(city);
-
-        if(common) {
-            System.out.println(common);
-        }
     }
 }
