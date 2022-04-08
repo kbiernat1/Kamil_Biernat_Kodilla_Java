@@ -7,12 +7,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootTest
-class ForumUserTestSuite {
+public class ForumUserTestSuite {
 
     @Test
     void testGetUsername() {
         //given
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.forum");
         ForumUser forumUser = context.getBean(ForumUser.class);
 
         //when

@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootTest
-class KodillaSpringApplicationTests {
+public class KodillaSpringApplicationTests {
 
     @Test
     void testCircleLoadedIntoContainer() {
