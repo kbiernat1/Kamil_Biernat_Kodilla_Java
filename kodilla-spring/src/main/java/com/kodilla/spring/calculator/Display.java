@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Display {
 
-    @Autowired
     public void displayValue(double val) {
         System.out.println("result of action: " + val);
     }
