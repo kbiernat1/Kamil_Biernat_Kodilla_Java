@@ -1,5 +1,7 @@
 package com.kodilla.kodillaspring;
 
+import com.kodilla.spring.calculator.Calculator;
+import com.kodilla.spring.calculator.Display;
 import com.kodilla.spring.forum.ForumUser;
 import com.kodilla.spring.library.Library;
 import com.kodilla.spring.shape.Circle;
@@ -102,7 +104,7 @@ public class KodillaSpringApplicationTests {
         //do nothing
     }
 
-
+    /*
     @Autowired
     private Library library;
 
@@ -115,5 +117,25 @@ public class KodillaSpringApplicationTests {
 
         //Then
         //do nothing
+    } */
+
+    @Test
+    void testCalculations() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Calculator calculator = context.getBean(Calculator.class);
+
+        //When
+        double sum = calculator.add(10, 5);
+        double difference = calculator.sub(10,5);
+        double multiply = calculator.mul(10, 5);
+        double divide = calculator.div(10,5);
+
+        //Then
+        assertEquals(15, sum, 0.1);
+        assertEquals(5, difference, 0.1);
+        assertEquals(50, multiply, 0.1);
+        assertEquals(2, divide,0.1);
     }
 }
