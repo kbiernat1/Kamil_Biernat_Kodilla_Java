@@ -1,6 +1,7 @@
 package com.kodilla.kodillaspring;
 
 import com.kodilla.spring.forum.ForumUser;
+import com.kodilla.spring.library.Library;
 import com.kodilla.spring.shape.Circle;
 import com.kodilla.spring.shape.Shape;
 import com.kodilla.spring.shape.Square;
@@ -8,6 +9,7 @@ import com.kodilla.spring.shape.Triangle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class KodillaSpringApplicationTests {
 
-    @DisplayName("exercise 10.1")
+    //"exercise 10.1")
     @Test
     void testGetUsername() {
         //given
@@ -32,7 +34,7 @@ public class KodillaSpringApplicationTests {
 
     }
 
-    @DisplayName("example 10.1 Shape")
+    //"example 10.1 Shape")
     @Test
     void testCircleLoadedIntoContainer() {
 
@@ -61,13 +63,13 @@ public class KodillaSpringApplicationTests {
         assertEquals("This is triangle.", name);
     }
 
-    @DisplayName("example 10.2 Shape")
+    //"example 10.2 Shape")
     @Test
     void testSquareLoadedIntoContainer() {
         //Given
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = (Shape)context.getBean("create square");
+        Shape shape = (Shape)context.getBean("createSquare");
         //When
         String name = shape.getShapeName();
         //Then
@@ -85,4 +87,33 @@ public class KodillaSpringApplicationTests {
         System.out.println("chosen shape says: " + name);
     }
 
+    //example Library - pierwsze rozwiązanie dłuższe, drugie (save) skrócone dzięki autowired
+    @Test
+    void testLoadFromDb() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Library library = context.getBean(Library.class);
+
+        //When
+        library.loadFromDb();
+
+        //Then
+        //do nothing
+    }
+
+
+    @Autowired
+    private Library library;
+
+    @Test
+    void testSaveToDb() {
+
+
+        //When
+        library.saveToDb();
+
+        //Then
+        //do nothing
+    }
 }
