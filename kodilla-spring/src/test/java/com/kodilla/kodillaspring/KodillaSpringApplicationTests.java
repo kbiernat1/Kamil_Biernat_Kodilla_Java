@@ -133,9 +133,9 @@ public class KodillaSpringApplicationTests {
         double divide = calculator.div(10,5);
 
         //Then
-        assertEquals(15, sum, 0.1);
-        assertEquals(5, difference, 0.1);
-        assertEquals(50, multiply, 0.1);
-        assertEquals(2, divide,0.1);
+        assertEquals(15, sum);
+        assertEquals(5, difference);
+        assertEquals(50, multiply);
+        assertEquals(2, divide);
     }
 }
