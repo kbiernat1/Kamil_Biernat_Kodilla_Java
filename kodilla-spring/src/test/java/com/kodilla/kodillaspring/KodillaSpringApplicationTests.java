@@ -5,6 +5,8 @@ import com.kodilla.spring.calculator.Display;
 import com.kodilla.spring.forum.ForumUser;
 import com.kodilla.spring.library.Library;
 import com.kodilla.spring.library.LibraryConfig;
+import com.kodilla.spring.reader.Reader;
+import com.kodilla.spring.reader.ReaderConfig;
 import com.kodilla.spring.shape.Circle;
 import com.kodilla.spring.shape.Shape;
 import com.kodilla.spring.shape.Square;
@@ -154,5 +156,25 @@ public class KodillaSpringApplicationTests {
         Arrays.stream(context.getBeanDefinitionNames())
                 .forEach(System.out::println);
         System.out.println("<< ===== Beans list ====");
+    }
+
+    @Test
+    void testRead() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext(ReaderConfig.class);
+        Reader reader = context.getBean(Reader.class);
+
+        //When & Then
+        reader.read();
+    }
+
+    @Test
+    void testConditional() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext(ReaderConfig.class);
+        //When
+        boolean book2Exists = context.containsBean("book2");
+        //Then
+        System.out.println("Bean book2 was found in the container: " + book2Exists);
     }
 }
