@@ -4,6 +4,7 @@ import com.kodilla.spring.calculator.Calculator;
 import com.kodilla.spring.calculator.Display;
 import com.kodilla.spring.forum.ForumUser;
 import com.kodilla.spring.library.Library;
+import com.kodilla.spring.library.LibraryConfig;
 import com.kodilla.spring.shape.Circle;
 import com.kodilla.spring.shape.Shape;
 import com.kodilla.spring.shape.Square;
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -119,6 +122,7 @@ public class KodillaSpringApplicationTests {
         //do nothing
     } */
 
+    //test do zadania 10.2
     @Test
     void testCalculations() {
         //Given
@@ -137,5 +141,18 @@ public class KodillaSpringApplicationTests {
         assertEquals(5, difference);
         assertEquals(50, multiply);
         assertEquals(2, divide);
+    }
+
+    @Test
+    void testContext() {
+        //Given
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com.kodilla.spring");
+
+        //When & Then
+        System.out.println("===== Beans list: ==== >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< ===== Beans list ====");
     }
 }
