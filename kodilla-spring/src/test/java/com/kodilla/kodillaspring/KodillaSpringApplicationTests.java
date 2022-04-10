@@ -5,6 +5,8 @@ import com.kodilla.spring.calculator.Display;
 import com.kodilla.spring.forum.ForumUser;
 import com.kodilla.spring.library.Library;
 import com.kodilla.spring.library.LibraryConfig;
+import com.kodilla.spring.portfolio.Board;
+import com.kodilla.spring.portfolio.BoardConfig;
 import com.kodilla.spring.reader.Reader;
 import com.kodilla.spring.reader.ReaderConfig;
 import com.kodilla.spring.shape.Circle;
@@ -176,5 +178,24 @@ public class KodillaSpringApplicationTests {
         boolean book2Exists = context.containsBean("book2");
         //Then
         System.out.println("Bean book2 was found in the container: " + book2Exists);
+    }
+
+    @Test
+    void testTaskAdd() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
+        Board board = context.getBean(Board.class);
+        //When
+        boolean taskOne = board.getToDoList().addTask("Task no. 1 for to-do list");
+        boolean taskTwo = board.getInProgressList().addTask("Task no. 1 for in-progress list");
+        boolean taskThree = board.getDoneList().addTask("Task no. 1 for done list");
+        //Then
+        System.out.println("is there a task on to-do list: " + taskOne);
+        System.out.println("is there a task on in-progress list: " + taskTwo);
+        System.out.println("is there a task on done list: " + taskThree);
+
+        assertEquals("Task no. 1 for to-do list", board.getToDoList().getTasks().get(0));
+        assertEquals("Task no. 1 for in-progress list", board.getInProgressList().getTasks().get(0));
+        assertEquals("Task no. 1 for done list", board.getDoneList().getTasks().get(0));
     }
 }
