@@ -1,4 +1,4 @@
-package com.kodilla.kodillaspring;
+package com.kodilla.spring;
 
 import com.kodilla.spring.calculator.Calculator;
 import com.kodilla.spring.calculator.Display;
@@ -111,7 +111,7 @@ public class KodillaSpringApplicationTests {
         //do nothing
     }
 
-    /*
+
     @Autowired
     private Library library;
 
@@ -124,7 +124,7 @@ public class KodillaSpringApplicationTests {
 
         //Then
         //do nothing
-    } */
+    }
 
     //test do zadania 10.2
     @Test
