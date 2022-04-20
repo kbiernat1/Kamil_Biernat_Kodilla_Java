@@ -1,0 +1,54 @@
+CREATE TABLE ISSUESLISTS
+(
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(100)
+);
+
+CREATE TABLE ISSUES
+(
+    ID SERIAL PRIMARY KEY,
+    ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+    SUMMARY VARCHAR(100),
+    DESCRIPTION VARCHAR(1024),
+    USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+
+INSERT INTO issueslists
+VALUES (1, "ToDo");
+INSERT INTO issueslists
+VALUES (2, "In progress");
+INSERT INTO issueslists
+VALUES (3, "Done");
+
+insert into issues
+values (1, 1, "first to do", "description of first position on list ToDo", 1);
+insert into issues
+values (2, 1, "second to do", "description of second position on list ToDo", 1);
+insert into issues
+values (3, 1, "third to do", "description of third position on list ToDo", 2);
+insert into issues
+values (4, 1, "fourth to do", "description of fourth position on list ToDo", 3);
+insert into issues
+values (5, 1, "fifth to do", "description of fifth position on list ToDo", 3);
+insert into issues
+values (6, 2, "first in progress", "description of first position on list in progress", 4);
+insert into issues
+values (7, 2, "second in progress", "description of second position on list in progress", 5);
+insert into issues
+values (8, 2, "third in progress", "description of third position on list in progress", 2);
+insert into issues
+values (9, 2, "fourth in progress", "description of fourth position on list in progress", 4);
+insert into issues
+values (10, 2, "fifth in progress", "description of fifth position on list in progress", 5);
+insert into issues
+values (11, 3, "first done", "description of first position on list done", 1);
+insert into issues
+values (12, 3, "second done", "description of second position on list done", 1);
+insert into issues
+values (13, 3, "third done", "description of third position on list done", 2);
+insert into issues
+values (14, 3, "fourth done", "description of fourth position on list done", 4);
+insert into issues
+values (15, 3, "fifth done", "description of fifth position on list done", 5);
+commit;
