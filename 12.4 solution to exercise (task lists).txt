@@ -1,0 +1,13 @@
+select U.DESCRIPTION, p.NAME
+FROM issues U
+JOIN issueslists P ON U.ISSUESLIST_ID = P.ID
+
+
+select u.description, p.FIRSTNAME, p.LASTNAME
+from issues u
+join users p on u.USER_ID_ASSIGNEDTO = p.ID
+
+
+select u.FIRSTNAME, u.LASTNAME, count(*) as tasks_amount
+from users u join issues p on u.ID = p.USER_ID_ASSIGNEDTO
+group by p.USER_ID_ASSIGNEDTO
