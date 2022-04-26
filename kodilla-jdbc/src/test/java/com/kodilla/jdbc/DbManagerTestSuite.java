@@ -24,7 +24,7 @@ class DbManagerTestSuite {
         //given
         DbManager dbManager = DbManager.getInstance();
 
-        //when
+        //When
         String sqlQuery = "select * from users";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
