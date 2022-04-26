@@ -20,7 +20,7 @@ class DbManagerTestSuite {
     }
 
     @Test
-    void testSelectUsers() throws SQLException {
+    void testSelectUsers() throws SQLException { //
         //given
         DbManager dbManager = DbManager.getInstance();
 
