@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.tasklist;
+package com.kodilla.hibernate.task.dao;
 
 import com.sun.istack.NotNull;
 
