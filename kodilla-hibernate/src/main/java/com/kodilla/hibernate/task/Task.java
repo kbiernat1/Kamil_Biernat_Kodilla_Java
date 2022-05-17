@@ -12,10 +12,8 @@ public class Task {
     private String description;
     private Date created;
     private int duration;
-
-
-
     private TaskFinancialDetails taskFinancialDetails;
+    private TaskList taskList;
 
     public Task() {}
 
@@ -55,8 +53,10 @@ public class Task {
         return taskFinancialDetails;
     }
 
-    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
-        this.taskFinancialDetails = taskFinancialDetails;
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
     }
 
     private void setDescription(String description) {
@@ -73,6 +73,14 @@ public class Task {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
     }
 
 }
