@@ -19,6 +19,7 @@ public class InvoiceDaoTestSuite {
     @Test
     void testInvoiceDaoSave() {
         //G
+        invoiceDao.deleteAll();
         Product product = new Product("TV");
         Product product1 = new Product("Laptop");
 
@@ -42,8 +43,12 @@ public class InvoiceDaoTestSuite {
 
         //T
         Assertions.assertNotEquals(0, id);
+        Assertions.assertEquals(3, invoice.getItems().size());
+        Assertions.assertEquals("TV", item.getProduct().getName());
+        Assertions.assertEquals("TV", item1.getProduct().getName());
+        Assertions.assertEquals("Laptop", item2.getProduct().getName());
 
         //Cleanup
-        invoiceDao.deleteById(id);
+        invoiceDao.deleteAll();
     }
 }
