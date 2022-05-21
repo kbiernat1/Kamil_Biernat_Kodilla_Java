@@ -1,23 +1,23 @@
 {
 	"carBrand" : "Toyota",
 	"carModel" : "Yaris",
-	"carSeats" : {
-		"firstSeat" : {
+	"carSeats" :[
+		{
 			"fabric" : "leather",
 			"color" : "yellow"
 		},
-		"secondSeat" : {
+		{
 			"fabric" : "leather",
 			"color" : "blue"
 		},
-		"thirdSeat" : {
+		{
 			"fabric" : "leather",
 			"color" : "green"
 		},
-		"fourthSeat" : {
+		{
 			"fabric" : "leather",
 			"color" : "red"
 		},
-	},
+	],
 	"engineCapacityInCm3" : 998,00
 }
