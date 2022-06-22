@@ -5,10 +5,17 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.retrieveEmployeesByTheirLastname",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Employee.retrieveEmployeesByTheirLastname",
+                query = "SELECT * FROM EMPLOYEES WHERE LASTNAME = :LASTNAME"
+        ),
+
+        @NamedNativeQuery(
+                name = "Employee.retrieveEmployeesByAnyLettersSet",
+                query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT('%', RETRIEVE_LASTNAME, '%')"
+        )
+})
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -51,8 +58,8 @@ public class Employee {
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
-                    inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
-            )
+            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
+    )
     public List<Company> getCompanies() {
         return companies;
     }
