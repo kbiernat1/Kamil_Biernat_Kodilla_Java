@@ -13,7 +13,7 @@ import java.util.List;
 
         @NamedNativeQuery(
                 name = "Employee.retrieveEmployeesByAnyLettersSet",
-                query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT('%', RETRIEVE_LASTNAME, '%')"
+                query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT('%', :RETRIEVE_LASTNAME, '%')"
         )
 })
 

@@ -21,7 +21,6 @@ public class CompanyEmployeeFacadeTestSuite {
     private EmployeeDao employeeDao;
 
     private List<Employee> employees = new ArrayList<>();
-    private List<Company> companies = new ArrayList<>();
 
     @BeforeAll
     private void inputData () {
@@ -52,10 +51,6 @@ public class CompanyEmployeeFacadeTestSuite {
         employees.add(johnSmith);
         employees.add(stephanieClarckson);
         employees.add(lindaKovalsky);
-
-        companies.add(softwareMachine);
-        companies.add(dataMaesters);
-        companies.add(greyMatter);
     }
 
     @AfterAll
@@ -66,23 +61,17 @@ public class CompanyEmployeeFacadeTestSuite {
 
     @Test
     void employeeFacadeTest() {
-        //Given
-        inputData();
         //When
         List<Employee> employee = employeeDao.retrieveEmployeesByAnyLettersSet("arc");
         //Then
         Assertions.assertEquals(1, employee.size());
-        outputData();
     }
 
     @Test
     void companyFacadeTest() {
-        //Given
-        inputData();
         //When
-        List<Company> companies = companyDao.retrieveFromCompanyNameByAnyLettersSet("ftw");
+        List<Company> companies = companyDao.retrieveFromCompanyNameByAnyLettersSet("ata");
         //Then
         Assertions.assertEquals(1, companies.size());
-        outputData();
     }
 }
