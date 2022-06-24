@@ -1,8 +1,5 @@
 package com.kodilla.patterns2.facade;
 
-import com.kodilla.patterns2.facade.Authenticator;
-import com.kodilla.patterns2.facade.Order;
-import com.kodilla.patterns2.facade.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
